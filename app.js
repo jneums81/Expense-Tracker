@@ -44,6 +44,42 @@ const addExpense = (description, amount, date) => {
 };
 
 // Your other database operations go here
+// ...
+
+// Your other database operations go here
+
+// Display all expenses
+app.get('/', async (req, res) => {
+    try {
+        const expenses = await getExpenses();
+        res.render('index', { expenses });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// Display form to add a new expense
+app.get('/add', (req, res) => {
+    res.render('add');
+});
+
+// Handle form submission to add a new expense
+app.post('/add', async (req, res) => {
+    const { description, amount, date } = req.body;
+    
+    try {
+        await addExpense(description, amount, date);
+        res.redirect('/');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// Your other routes go here
+
+// ...
 
 
 app.listen(port, () => {
