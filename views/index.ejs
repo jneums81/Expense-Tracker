@@ -1,6 +1,10 @@
+
+
+<!-- views/index.ejs -->
+
 <h2>Expense List</h2>
 
-<ul>
+<ul id="expense-list">
     <% expenses.forEach(expense => { %>
         <li>
             <strong><%= expense.description %></strong>
@@ -9,3 +13,8 @@
         </li>
     <% }) %>
 </ul>
+
+<script>
+    // Add front-end logic here
+</script>
+
