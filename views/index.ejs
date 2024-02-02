@@ -1,0 +1,11 @@
+<h2>Expense List</h2>
+
+<ul>
+    <% expenses.forEach(expense => { %>
+        <li>
+            <strong><%= expense.description %></strong>
+            <span><%= expense.amount %></span>
+            <span><%= expense.date %></span>
+        </li>
+    <% }) %>
+</ul>
